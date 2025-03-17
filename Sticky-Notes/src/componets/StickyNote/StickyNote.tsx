@@ -1,10 +1,12 @@
 import './StickyNote.css'
 
-function StickyNote(prop: { x: number, y: number }) {
+function StickyNote(prop: { x: number, y: number, teamMember: {name: string, color: string}, task: string, isComplete: boolean}) {
     return (
         <>
-            <div className="note" style={{ position: 'absolute', top: prop.y, left: prop.x }}>
-                StickNote Works
+            <div className="note" style={{backgroundColor: prop.teamMember.color, position: 'absolute', top: prop.y, left: prop.x}}>
+                <div>
+                    Assignee: {prop.teamMember.name}
+                </div>
             </div>
         </>
     )
