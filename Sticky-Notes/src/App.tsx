@@ -4,8 +4,15 @@ import StickyNote from './componets/StickyNote'
 
 
 function App() {
-  var test: {x: number, y: number}[] =[]
-  const [notes, setNotes] = useState(test);
+  var clientNotes: {x: number, y: number}[];
+  var storedNotes:string | null = sessionStorage.getItem("notes")
+  if(storedNotes) {
+    clientNotes = JSON.parse(storedNotes)
+  } else {
+    clientNotes = []
+  }
+  const [notes, setNotes] = useState(clientNotes);
+  sessionStorage.setItem("notes", JSON.stringify(notes));
 
   function addNote(_event: React.MouseEvent<HTMLElement>): void {
     setNotes([
@@ -15,10 +22,7 @@ function App() {
         y: _event.clientY
       }
     ]);
-    console.log("added not at ", {
-      x: _event.clientX,
-      y: _event.clientY
-    })
+    sessionStorage.setItem("notes", JSON.stringify(notes));
   }
 
   return (
