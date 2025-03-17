@@ -1,13 +1,13 @@
 
-function StickyNote(prop: {x: number, y: number}) {
+function StickyNote(prop: { x: number, y: number }) {
     return (
         <>
-        <div style={{position: 'absolute', top: prop.y, left: prop.x}}>
-            StickNote Works
-        </div>
+            <div style={{ position: 'absolute', top: prop.y, left: prop.x }}>
+                StickNote Works
+            </div>
         </>
     )
 }
 
 
-export default  StickyNote
+export default StickyNote
