@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./App.css"
-import StickyNote from './componets/StickyNote'
+import StickyNote from './componets/StickyNote/StickyNote'
 
 
 function App() {
