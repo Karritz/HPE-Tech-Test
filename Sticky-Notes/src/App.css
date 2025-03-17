@@ -1,5 +1,8 @@
 .noteGrid {
-    width: 800px;
-    height: 800px;
+    position: absolute;
+    top: 20px; /* Header Height */
+    bottom: 20px; /* Footer Height */
+    width: 99%;
     background-color: aqua;
+    overflow: scroll;
 }
