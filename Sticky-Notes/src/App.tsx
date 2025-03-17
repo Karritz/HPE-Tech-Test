@@ -1,33 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import "./App.css"
+import StickyNote from './componets/StickyNote'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  var test: {x: number, y: number}[] =[]
+  const [notes, setNotes] = useState(test);
+
+  function addNote(_event: React.MouseEvent<HTMLElement>): void {
+    setNotes([
+      ...notes,
+      {
+        x: _event.clientX,
+        y: _event.clientY
+      }
+    ]);
+    console.log("added not at ", {
+      x: _event.clientX,
+      y: _event.clientY
+    })
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='noteGrid' onClick={addNote}>
+        {notes.map((note) => (
+          <StickyNote x={note.x} y={note.y}></StickyNote>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
