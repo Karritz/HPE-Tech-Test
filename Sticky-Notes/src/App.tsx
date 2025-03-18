@@ -1,12 +1,14 @@
 import { useState } from "react"
 import "./App.css"
 import StickyNote from './componets/StickyNote/StickyNote'
-import AddTeamMember from "./componets/AddTeamMember/addTeamMember";
+import AddTeamMember from "./componets/AddTeamMember/AddTeamMember";
+import { TeamMember } from "./componets/AddTeamMember/interface/teamMember";
+import { Note } from "./componets/StickyNote/interface/note";
 
 
 function App() {
-  var clientNotes: { id: number, x: number, y: number, teamMember: { name: string, color: string }, priority: string, task: string, isComplete: string | undefined }[];
-  var clientTeam: { name: string, color: string }[];
+  var clientNotes: Note[];
+  var clientTeam: TeamMember[];
   var storedNotes: string | null = sessionStorage.getItem("notes");
   var storedTeam: string | null = sessionStorage.getItem("team");
   if (storedNotes) {
@@ -53,7 +55,7 @@ function App() {
     alert(JSON.stringify(team))
   }
 
-  function addTeamMember(data: any): void {
+  function addTeamMember(data: TeamMember): void {
     setTeam([
       ...team,
       {
@@ -64,7 +66,7 @@ function App() {
     sessionStorage.setItem("team", JSON.stringify(team));
   }
 
-  function editNote(note: any) {
+  function editNote(note: Note) {
     var foundNote = notes.find((x) => x.id == note.id);
     console.log(note)
     if(foundNote) {
@@ -93,7 +95,7 @@ function App() {
       <AddTeamMember show={showAddMember} teamMember={addTeamMember}></AddTeamMember>
       <div className='noteGrid' onClick={addNote}>
         {notes.map((note) => (
-          <StickyNote note={editNote} team={team} id={note.id} x={note.x} y={note.y} priority={note.priority} teamMember={note.teamMember} task={note.task} isComplete={note.isComplete}></StickyNote>
+          <StickyNote newNote={editNote} team={team} note={note}></StickyNote>
         ))}
       </div>
     </>
