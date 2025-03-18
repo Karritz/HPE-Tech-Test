@@ -25,7 +25,6 @@ function App() {
   sessionStorage.setItem("notes", JSON.stringify(notes));
 
   function addNote(_event: React.MouseEvent<HTMLElement>): void {
-    _event.stopPropagation()
     setNotes([
       ...notes,
       {
@@ -58,6 +57,10 @@ function App() {
     ])
   }
 
+  function editNote(note: any) {
+    console.log(note);
+  }
+
   return (
     <>
       <div className="headerLayout">
@@ -67,14 +70,14 @@ function App() {
             All Team Members
           </button>
           <button onClick={() => toggleShowAddMember(!showAddMember)}>
-            Add +
+            { showAddMember ? "Close -" : "Add +"}
           </button>
         </div>
       </div>
       <AddTeamMember show={showAddMember} teamMember={addTeamMember}></AddTeamMember>
       <div className='noteGrid' onClick={addNote}>
         {notes.map((note) => (
-          <StickyNote x={note.x} y={note.y} teamMember={note.teamMember} task={note.task} isComplete={note.isComplete}></StickyNote>
+          <StickyNote note={editNote} x={note.x} y={note.y} teamMember={note.teamMember} task={note.task} isComplete={note.isComplete}></StickyNote>
         ))}
       </div>
     </>

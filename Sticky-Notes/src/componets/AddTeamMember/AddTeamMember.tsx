@@ -1,12 +1,13 @@
 import './AddTeamMember.css'
 
-function AddTeamMember({ teamMember, show }: any) {
+function AddTeamMember({ teamMember, show }: {teamMember: Function, show: boolean}) {
 
     function handleSubmit(event: any): void {
         event.preventDefault();
         const formData = new FormData(event.target);
         const formJson = Object.fromEntries(formData.entries());
         teamMember(formJson);
+        event.target.reset()
 
     }
 
