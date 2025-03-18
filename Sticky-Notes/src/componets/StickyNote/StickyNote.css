@@ -3,7 +3,7 @@
     border-radius: 8px;
     width: 300px;
     height: 200px;
-    background-color: wheat;
+    z-index: 98;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
