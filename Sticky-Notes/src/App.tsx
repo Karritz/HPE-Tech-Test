@@ -25,6 +25,7 @@ function App() {
   sessionStorage.setItem("notes", JSON.stringify(notes));
 
   function addNote(_event: React.MouseEvent<HTMLElement>): void {
+    _event.stopPropagation()
     setNotes([
       ...notes,
       {
