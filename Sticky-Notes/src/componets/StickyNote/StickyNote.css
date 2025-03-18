@@ -9,3 +9,26 @@
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
+
+.priorityNote {
+    border: 5px solid crimson;
+    box-shadow: 10px 10px 5px 0px rgba(224, 128, 128, 0.5);
+}
+
+.formLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textArea {
+    height: 50px;
+}
+
+.labelLayout {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center
+}
