@@ -1,8 +1,20 @@
 .noteGrid {
     position: absolute;
-    top: 20px; /* Header Height */
+    top: 100px; /* Header Height */
     bottom: 20px; /* Footer Height */
     width: 99%;
     background-color: whitesmoke;
     overflow: scroll;
+}
+
+.headerLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonLayout {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
