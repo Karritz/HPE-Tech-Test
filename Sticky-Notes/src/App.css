@@ -1,6 +1,6 @@
 .noteGrid {
     position: absolute;
-    top: 100px; /* Header Height */
+    top: 40px; /* Header Height */
     bottom: 20px; /* Footer Height */
     width: 99%;
     background-color: whitesmoke;

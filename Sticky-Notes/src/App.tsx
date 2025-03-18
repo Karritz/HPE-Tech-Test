@@ -70,9 +70,7 @@ function App() {
           </button>
         </div>
       </div>
-      <div style={{visibility: showAddMember ? 'visible' : 'hidden' }}>
-        <AddTeamMember show={showAddMember} teamMember={addTeamMember}></AddTeamMember>
-      </div>
+      <AddTeamMember show={showAddMember} teamMember={addTeamMember}></AddTeamMember>
       <div className='noteGrid' onClick={addNote}>
         {notes.map((note) => (
           <StickyNote x={note.x} y={note.y} teamMember={note.teamMember} task={note.task} isComplete={note.isComplete}></StickyNote>
